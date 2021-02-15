@@ -1,0 +1,25 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char** argv) {
+	ifstream file; //plik wejsciowy
+	file.open("ciagi.txt");//otwarcie pliku ciagi.txt
+	int SIZE = 1000;
+	string tab[SIZE];
+	int length;
+  string s1, s2; 
+  for (int i = 0; i < SIZE; i++) {
+    length = tab[i].length();
+    if (length % 2 != 0) continue;
+    s1 = tab[i].substr(0, length / 2); //s1 to fragment od 0 do length / 2 -1
+    s2 = tab[i].substr(length / 2, length / 2); //s2 to fragment od length/2 do końca
+    if (s1 == s2) { //sprawdzić czy s1 == s2
+      cout << tab[i] << endl;
+    }
+  }
+  file.close();//zamknięcie pliku
+  return 0;//koniec
+}
